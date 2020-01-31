@@ -7,17 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Skill.destroy_all
+Job.destroy_all
+
 # Generate Skills
-Skill.create([{ name: 'HTML' }])
-Skill.create([{ name: 'CSS' }])
-Skill.create([{ name: 'JavaScript' }])
-Skill.create([{ name: 'Ruby' }])
-Skill.create([{ name: 'Rails' }])
-Skill.create([{ name: 'PHP' }])
-Skill.create([{ name: 'Python' }])
-Skill.create([{ name: 'NodeJS' }])
-Skill.create([{ name: 'Angular' }])
-Skill.create([{ name: 'VueJS' }])
-Skill.create([{ name: 'React' }])
-Skill.create([{ name: 'SQL' }])
-Skill.create([{ name: 'WordPress' }])
+Skill.create!([{ name: 'HTML' }])
+Skill.create!([{ name: 'CSS' }])
+Skill.create!([{ name: 'JavaScript' }])
+Skill.create!([{ name: 'Ruby' }])
+Skill.create!([{ name: 'Rails' }])
+Skill.create!([{ name: 'PHP' }])
+Skill.create!([{ name: 'Python' }])
+Skill.create!([{ name: 'NodeJS' }])
+Skill.create!([{ name: 'Angular' }])
+Skill.create!([{ name: 'VueJS' }])
+Skill.create!([{ name: 'React' }])
+Skill.create!([{ name: 'SQL' }])
+Skill.create!([{ name: 'WordPress' }])
+
+# Generate Jobs
+
+j1 = Job.create!(company_name: '1-Stop Connections' , location: 'Sydney', description: 'Working closely with the UI/UX designer and product manager, the Front End Developer role at 1-Stop is an opportunity to be on the front-line of some of the biggest global tech projects in the industry.', salary: 80000)
+j2 = Job.create!(company_name: 'Flo2Cash' , location: 'Sydney', description: 'If you are an engineer who is really willing to improve ,wants to make a difference in customer experience and succeed, we would love to talk to you. In our team, you will have the opportunity to', salary: 60000)
+j3 = Job.create!(company_name: 'UTS' , location: 'Sydney', description: 'This position will lead on the design and implementation of engaging, responsive web applications and websites for the Connected Intelligence Centre, whose mission is to help UTS students and staff gain timely insights from educational data. Your communication skills will also be put to great use, as you engage people from across the university and beyond with these exciting new applications.', salary: 100000)
+j4 = Job.create!(company_name: 'Torch Professional Services	' , location: 'Sydney', description: 'This is a fantastic opportunity for a smart, ambitious .NET Developer to work within a fast paced dynamic culture that encourages creativity and innovation.', salary: 30500)
