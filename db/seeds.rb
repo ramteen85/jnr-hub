@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# Generate Skills
+Skill.create([{ name: 'HTML' }])
+Skill.create([{ name: 'CSS' }])
+Skill.create([{ name: 'JavaScript' }])
+Skill.create([{ name: 'Ruby' }])
+Skill.create([{ name: 'Rails' }])
+Skill.create([{ name: 'PHP' }])
+Skill.create([{ name: 'Python' }])
+Skill.create([{ name: 'NodeJS' }])
+Skill.create([{ name: 'Angular' }])
+Skill.create([{ name: 'VueJS' }])
+Skill.create([{ name: 'React' }])
+Skill.create([{ name: 'SQL' }])
+Skill.create([{ name: 'WordPress' }])
