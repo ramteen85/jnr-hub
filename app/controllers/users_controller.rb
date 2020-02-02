@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   #Certain pages not visible if you arent logged in
   before_action :check_if_logged_in, except: [ :new, :create ]
+  before_action :check_if_admin, only: [ :index, :destroy]
 
 
   # Lock down admin pages
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit( :full_name, :email, :password, :password_confirmation, :admin, :phone_no, :location, :website, :about )
+    params.require(:user).permit( :full_name, :email, :password, :password_confirmation, :admin, :phone_no, :location, :website, :about, :admin )
   end
 
 end

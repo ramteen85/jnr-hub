@@ -20,4 +20,7 @@ class ApplicationController < ActionController::Base
   def check_if_admin
     redirect_to login_path unless @current_user.present? && @current_user.admin?
   end
+  def allow_cors
+  headers['Access-Control-Allow-Origin'] = '*'
+end
 end

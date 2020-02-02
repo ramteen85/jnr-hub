@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'jobs#index'
   get 'users/new'
   get '/login' => 'session#new'
   post '/login' => 'session#create'

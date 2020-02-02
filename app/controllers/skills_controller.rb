@@ -1,5 +1,7 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin, only: [ :index, :new, :create, :destroy, :update ]
+
 
   # GET /skills
   # GET /skills.json
