@@ -36,17 +36,17 @@ j4 = Job.create!(company_name: 'Torch Professional Services	' , location: 'Sydne
 
 u1=User.create!(email: 'admin@gmail.com',full_name: 'kevin smith',password: 'chicken',
                 phone_no:'9999999', website:'www.crud.com',about:'spam', admin: true, suburb:'waterloo',
-                state:'nsw', country:'aus', userType:"jobseeker")
+                state:'nsw', country:'aus', user_type:"jobseeker")
 
 u2=User.create!(email: 'freddie@gmail.com',full_name: 'freddie jackson',password: 'chicken',
                 phone_no:'9999999', website:'www.crud.com',about:'spam', admin: false, suburb:'waterloo',
-                state:'nsw', country:'aus',userType:"jobseeker")
+                state:'nsw', country:'aus',user_type:"jobseeker")
 
 
 u3=User.create!(email: 'oliver@gmail.com',full_name: 'oliver cook',password: 'chicken',
                 phone_no:'9999999', website:'www.crud.com',about:'spam', admin: true, suburb:'waterloo',
-                state:'nsw', country:'aus', userType:"employer")
+                state:'nsw', country:'aus', user_type:"employer")
 
 u4=User.create!(email: 'ram@gmail.com',full_name: 'ram singh',password: 'chicken',
                 phone_no:'9999999', website:'www.crud.com',about:'spam', admin: false, suburb:'waterloo',
-                state:'nsw', country:'aus', userType:"employer")
+                state:'nsw', country:'aus', user_type:"employer")
