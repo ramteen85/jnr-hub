@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+User.destroy_all
 Skill.destroy_all
 Job.destroy_all
 
@@ -31,3 +31,22 @@ j1 = Job.create!(company_name: '1-Stop Connections' , location: 'Sydney', descri
 j2 = Job.create!(company_name: 'Flo2Cash' , location: 'Sydney', description: 'If you are an engineer who is really willing to improve ,wants to make a difference in customer experience and succeed, we would love to talk to you. In our team, you will have the opportunity to', salary: 60000)
 j3 = Job.create!(company_name: 'UTS' , location: 'Sydney', description: 'This position will lead on the design and implementation of engaging, responsive web applications and websites for the Connected Intelligence Centre, whose mission is to help UTS students and staff gain timely insights from educational data. Your communication skills will also be put to great use, as you engage people from across the university and beyond with these exciting new applications.', salary: 100000)
 j4 = Job.create!(company_name: 'Torch Professional Services	' , location: 'Sydney', description: 'This is a fantastic opportunity for a smart, ambitious .NET Developer to work within a fast paced dynamic culture that encourages creativity and innovation.', salary: 30500)
+
+
+
+u1=User.create!(email: 'admin@gmail.com',full_name: 'kevin smith',password: 'chicken',
+                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: true, suburb:'waterloo',
+                state:'nsw', country:'aus', userType:"jobseeker")
+
+u2=User.create!(email: 'freddie@gmail.com',full_name: 'freddie jackson',password: 'chicken',
+                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: false, suburb:'waterloo',
+                state:'nsw', country:'aus',userType:"jobseeker")
+
+
+u3=User.create!(email: 'oliver@gmail.com',full_name: 'oliver cook',password: 'chicken',
+                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: true, suburb:'waterloo',
+                state:'nsw', country:'aus', userType:"employer")
+
+u4=User.create!(email: 'ram@gmail.com',full_name: 'ram singh',password: 'chicken',
+                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: false, suburb:'waterloo',
+                state:'nsw', country:'aus', userType:"employer")
