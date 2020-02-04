@@ -17,6 +17,7 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    check_if_employer
   end
 
   # GET /jobs/1/edit

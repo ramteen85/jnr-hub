@@ -19,7 +19,7 @@
     </div>
     <div class="right-nav">
     <% if @current_user.present? %>
-          Logged in as <a href="users/<%= @current_user.id %>"><%= @current_user.full_name %></a>
+          Logged in as <a href="/users/<%= @current_user.id %>"><%= @current_user.full_name %></a>
           <% if @current_user.admin? %>
           (admin)
           <%= link_to "New Job", new_job_path, :class => "mdl-button" %>
