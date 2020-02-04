@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def register
-    respond_to do |format|
+      respond_to do |format|
       format.json { render text: t.response }
     end
   end
