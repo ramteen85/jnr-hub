@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'jobs#index'
   get 'users/new'
+  post '/users/register' => 'users#register'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'

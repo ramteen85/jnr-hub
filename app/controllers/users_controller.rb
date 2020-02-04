@@ -47,6 +47,12 @@ class UsersController < ApplicationController
     redirect_to '/users'
   end
 
+  def register
+    respond_to do |format|
+      format.json { render text: t.response }
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit( :full_name, :email, :password, :password_confirmation, :admin, :phone_no, :location, :website, :about, :admin )
