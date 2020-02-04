@@ -20,9 +20,9 @@ class UsersController < ApplicationController
 
     if @user.persisted?
       session[:user_id] = @user.id
-      redirect_to user_path(@user.id)
+      render json: { message: "ok", user_id: @user.id }
     else
-      render :new
+      render json: { message: "error", errors: @user.errors.full_messages }
     end
 
   end
