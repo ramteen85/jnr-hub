@@ -20,10 +20,19 @@
     <div class="right-nav">
     <% if @current_user.present? %>
           Logged in as <a href="/users/<%= @current_user.id %>"><%= @current_user.full_name %></a>
+
+          <% if @current_user.user_type == "employer" %>
+          (Employer)
+          <% end %>
+          <% if @current_user.user_type == "jobseeker" %>
+          (Job Seeker)
+          <% end %>
           <% if @current_user.admin? %>
-          (admin)
-          <%= link_to "New Job", new_job_path, :class => "mdl-button" %>
+          (Administrator)
           <%= link_to "New Skill", new_skill_path, :class => "mdl-button" %>
+          <% end %>
+          <% if @current_user.admin? || @current_user.user_type == "employer" %>
+          <%= link_to "New Job", new_job_path, :class => "mdl-button" %>
           <% end %>
           <%= link_to "Logout", login_path, method: 'delete', :class => "mdl-button", :onClick => 'alert("You have been logged out")'%>
           <% else %>
