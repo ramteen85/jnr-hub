@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   #Certain pages not visible if you arent logged in
   before_action :check_if_logged_in, except: [ :new, :create ]
   before_action :check_if_admin, only: [ :index, :destroy]
+  before_action :allow_cors
 
 
   # Lock down admin pages
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    render json: @users
   end
 
   def show
