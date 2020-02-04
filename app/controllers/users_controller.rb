@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :check_if_logged_in, except: [ :new, :create ]
   before_action :check_if_admin, only: [ :index, :destroy]
   before_action :allow_cors
-
+  skip_before_action :verify_authenticity_token
 
   # Lock down admin pages
   # before_action :check_if_admin, only: [ :index ]
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def update
   end
-
+  
   def destroy
     @user = User.find(params[:id])
     if @user.present?
@@ -48,12 +48,12 @@ class UsersController < ApplicationController
     end
     redirect_to '/users'
   end
-
-  def register
-      respond_to do |format|
-      format.json { render text: t.response }
-    end
-  end
+  #
+  # def register
+  #     respond_to do |format|
+  #     format.json { render text: t.response }
+  #   end
+  # end
 
   private
   def user_params
