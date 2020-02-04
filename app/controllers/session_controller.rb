@@ -1,4 +1,9 @@
 class SessionController < ApplicationController
+
+  before_action :allow_cors
+  skip_before_action :verify_authenticity_token
+
+
   def new
     # Action used for user login
   end
@@ -11,11 +16,12 @@ class SessionController < ApplicationController
 
       session[:user_id] = user.id
 
-      redirect_to root_path # go to show page (/users/10 etc)
+      render json: { message: "ok", user_id: user.id, user_type: user.user_type, session_id: session.id.public_id }
+
+      # redirect_to root_path # go to show page (/users/10 etc)
 
     else
-    flash[:error] = 'Invalid email or password'
-    redirect_to login_path #show form again
+    render json: { message: "error", errors: "Invalid username/password" }
   end
 end
 
