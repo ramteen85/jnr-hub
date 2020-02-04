@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.persisted?
       session[:user_id] = @user.id
-      render json: { message: "ok", user_id: @user.id }
+      render json: { message: "ok", user_id: @user.id, user_type: @user.user_type }
     else
       render json: { message: "error", errors: @user.errors.full_messages }
     end
