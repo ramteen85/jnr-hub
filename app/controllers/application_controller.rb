@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :fetch_user
+  include Knock::Authenticable
 
   def fetch_user
 
