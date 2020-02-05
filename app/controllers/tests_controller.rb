@@ -9,6 +9,7 @@ class TestsController < ApplicationController
   # GET /tests.json
   def index
     @tests = Test.all
+    render json: @jobs
   end
 
   # GET /tests/1
