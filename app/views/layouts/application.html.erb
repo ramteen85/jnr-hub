@@ -33,6 +33,7 @@
           <% end %>
           <% if @current_user.admin? || @current_user.user_type == "employer" %>
           <%= link_to "New Job", new_job_path, :class => "mdl-button" %>
+          <%= link_to "New Test", new_test_path, :class => "mdl-button" %>
           <% end %>
           <%= link_to "Logout", login_path, method: 'delete', :class => "mdl-button", :onClick => 'alert("You have been logged out")'%>
           <% else %>

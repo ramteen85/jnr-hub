@@ -9,6 +9,7 @@
 User.destroy_all
 Skill.destroy_all
 Job.destroy_all
+Test.destroy_all
 
 # Generate Skills
 Skill.create!([{ name: 'HTML' }])
@@ -50,3 +51,8 @@ u3=User.create!(email: 'oliver@gmail.com',full_name: 'Oliver Cook',password: 'ch
 u4=User.create!(email: 'ram@gmail.com',full_name: 'Ram Singh',password: 'chicken',
                 phone_no:'9999999', website:'www.crud.com',about:'spam', admin: false, suburb:'waterloo',
                 state:'nsw', country:'aus', user_type:"employer")
+
+t1=Test.create!(question: 'What is the correct JavaScript syntax to change the content of the HTML element below?', code: '<p id="demo">This is a demonstration.</p>')
+t2=Test.create!(question: 'How do you create a function in JavaScript?', code: '')
+t3=Test.create!(question: 'Write a for loop in JavaScript', code: '')
+t4=Test.create!(question: 'How would you remove the "blue" element from this array', code: 'let colors = ["red", "blue", "green", "yellow"]')
