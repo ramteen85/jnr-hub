@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   #Certain pages not visible if you arent logged in
-  before_action :check_if_logged_in, except: [ :new, :create ]
+  # before_action :check_if_logged_in, except: [ :new, :create ]
   before_action :check_if_admin, only: [ :index, :destroy ]
   before_action :allow_cors
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user, only: [ :create, :show, :getUser ] # require tokens
 
   # Lock down admin pages
   # before_action :check_if_admin, only: [ :index ]
@@ -12,6 +13,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def getUser
+    @user = User.find_by(email: params['user'])
+    render json: { message: "ok", user_id: @user.id, user_type: @user.user_type }
   end
 
   def create

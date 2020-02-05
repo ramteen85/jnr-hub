@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
   resources :tests
   root 'users#home'
-  get 'users/new'
   post '/users/register' => 'users#register'
+  post '/users/getuser' => 'users#getUser'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
