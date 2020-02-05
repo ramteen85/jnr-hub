@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :check_if_admin, only: [ :destroy ]
+  # before_action :authenticate_user, only: [ :index ] # require tokens
 
   # GET /jobs
   # GET /jobs.json
