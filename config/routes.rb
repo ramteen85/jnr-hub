@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'users#home'
   post '/users/register' => 'users#register'
   post '/users/getuser' => 'users#getUser'
+  get '/users/profile' => 'users#profile' 
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'

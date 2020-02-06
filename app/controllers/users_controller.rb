@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :check_if_admin, only: [ :index, :destroy ]
   before_action :allow_cors
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user, only: [ :show, :getUser ] # require tokens
+  before_action :authenticate_user, only: [ :show, :getUser, :profile ] # require tokens
 
   # Lock down admin pages
   # before_action :check_if_admin, only: [ :index ]
@@ -13,6 +13,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def profile
+    render json: current_user, include: :jobs
+
   end
 
   def getUser
