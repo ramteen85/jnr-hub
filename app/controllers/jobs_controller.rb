@@ -13,6 +13,8 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    render json: @jobs
+
   end
 
   # GET /jobs/new

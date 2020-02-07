@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #Certain pages not visible if you arent logged in
   # before_action :check_if_logged_in, except: [ :new, :create ]
-  before_action :check_if_admin, only: [ :index, :destroy ]
+  # before_action :check_if_admin, only: [ :index, :destroy ]
   before_action :allow_cors
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user, only: [ :show, :getUser, :profile ] # require tokens
