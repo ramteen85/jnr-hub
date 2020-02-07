@@ -13,8 +13,9 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    render json: @jobs
-
+    @jobid = params[:id]
+    @jobjson = Job.find(@jobid)
+    render json: @jobjson
   end
 
   # GET /jobs/new
