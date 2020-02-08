@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   def profile
     token = params['token']
 
+    puts "Token:"
+    puts
+
     begin
       decoded = decode_token(token)
       user = User.find_by(email: decoded[0]['email'])
@@ -52,11 +55,15 @@ class UsersController < ApplicationController
 
   def update
 
+    token = params['token']
+    decoded = decode_token(token)
+    current_user = User.find_by(email: decoded[0]['email'])
+
     # update whichever field(s) was sent through from the React frontend
     if current_user.update( user_params )
       render json: { user: current_user }
     else
-      render json: { error: current_user.errors.full_messages }
+      render json: { error: user.errors.full_messages }
     end
 
   end

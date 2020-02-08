@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/users/getuser' => 'users#getUser'
   get '/users/profile' => 'users#profile'
   post '/users/profile' => 'users#profile'
-  patch '/users' => 'users#update'
+  post '/users' => 'users#update'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
