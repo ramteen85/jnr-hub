@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :check_if_admin, only: [ :index, :destroy ]
   before_action :allow_cors
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user, only: [ :show, :getUser, :profile ] # require tokens
+  before_action :authenticate_user, only: [ :show, :getUser, :profile, :update ] # require tokens
 
   # Lock down admin pages
   # before_action :check_if_admin, only: [ :index ]
@@ -51,6 +51,28 @@ class UsersController < ApplicationController
   end
 
   def update
+
+    # update whichever field(s) was sent through from the React frontend
+    if current_user.update( user_params )
+      render json: { user: current_user }
+    else
+      render json: { error: current_user.errors.full_messages }
+    end
+
+
+
+    # artist = Artist.find params[:id]
+        # artist.update artist_params   # also use the strong params for the update
+
+        # redirect_to user_path(user.id)
+
+
+
+
+
+    # redirect_to planet_path(user.id)
+
+
   end
 
   def destroy
@@ -69,7 +91,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit( :full_name, :email, :password, :password_confirmation, :admin, :phone_no, :suburb, :country, :state, :website, :about, :user_type )
+    params.require(:user).permit( :full_name, :email, :password, :password_confirmation, :phone_no, :suburb, :country, :state, :website, :about, :user_type )
   end
 
 end

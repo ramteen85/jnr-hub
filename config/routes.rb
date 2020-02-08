@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   root 'users#home'
   post '/users/register' => 'users#register'
   post '/users/getuser' => 'users#getUser'
-  get '/users/profile' => 'users#profile' 
+  get '/users/profile' => 'users#profile'
+  patch '/users' => 'users#update'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
   resources :jobs
-  resources :users
+  resources :users, except: [:update  ]
   resources :skills
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
