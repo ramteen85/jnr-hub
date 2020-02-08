@@ -29,19 +29,19 @@ Skill.create!([{ name: 'WordPress' }])
 # Generate Jobs
 
 
-u1 =User.create!(email: 'admin@gmail.com', full_name: 'Kevin Smith', password: 'chicken',
+u1 = User.create!(email: 'admin@gmail.com', full_name: 'Kevin Smith', password: 'chicken',
                 phone_no:'9999999', website:'www.tinder.com', about:'About Me', admin: true, suburb:'North Sydney',
                 state:'nsw', country:'aus', user_type:"jobseeker")
 
-u2 =User.create!(email: 'freddie@gmail.com',full_name: 'Freddie Jackson',password: 'chicken',
+u2 = User.create!(email: 'freddie@gmail.com',full_name: 'Freddie Jackson',password: 'chicken',
                 phone_no:'9999999', website:'www.facebook.com', about:'About Me', admin: false, suburb:'CBD',
                 state:'nsw', country:'aus', user_type:"jobseeker")
 
-u3 =User.create!(email: 'oliver@gmail.com',full_name: 'Oliver Cook',password: 'chicken',
+u3 = User.create!(email: 'oliver@gmail.com',full_name: 'Oliver Cook',password: 'chicken',
                 phone_no:'9999999', website:'www.crud.com', about:'About Me', admin: true, suburb:'Hornsy',
                 state:'nsw', country:'aus', user_type:"employer")
 
-u4 =User.create!(email: 'ram@gmail.com',full_name: 'Ram Singh',password: 'chicken',
+u4 = User.create!(email: 'ram@gmail.com',full_name: 'Ram Singh',password: 'chicken',
                 phone_no:'9999999', website:'www.google.com', about:'About Me', admin: false, suburb:'Waterloo',
                 state:'NSW', country:'Australia', user_type:"employer")
 
