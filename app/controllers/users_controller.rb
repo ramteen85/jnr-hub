@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :allow_cors
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user, only: [ :show, :getUser, :profile, :update ] # require tokens
+  # before_action :authenticate_user, only: [ :show, :getUser, :profile, :update ] # require tokens
 
   def home
   end
@@ -11,13 +11,17 @@ class UsersController < ApplicationController
   end
 
   def profile
-    render json: current_user, include: :jobs
+    token = params['token']
 
-  end
-
-  def getUser
-    @user = User.find_by(email: params['user'])
-    render json: { message: "ok", user_id: @user.id, user_type: @user.user_type }
+    begin
+      decoded = decode_token(token)
+      user = User.find_by(email: decoded[0]['email'])
+      render json: user, include: :jobs
+    rescue StandardError => e
+      render json: {
+        "error": "Invalid Token"
+      }
+    end 
   end
 
   def create
@@ -25,8 +29,9 @@ class UsersController < ApplicationController
     @user = User.create user_params
 
     if @user.persisted?
-      session[:user_id] = @user.id
-      render json: { message: "ok", user_id: @user.id, user_type: @user.user_type }
+      render json: {
+        jwt: encode_token({id: @user.id, email: @user.email, userType: @user.user_type})
+      }
     else
       render json: { message: "error", errors: @user.errors.full_messages }
     end
@@ -68,5 +73,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit( :full_name, :email, :password, :password_confirmation, :phone_no, :suburb, :country, :state, :website, :about, :user_type )
   end
-
 end
