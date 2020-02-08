@@ -1,24 +1,6 @@
-# README
+# Jnr-Hub Back End
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Used Ruby on Rails with React front end
+* Created by Ramteen Taheri, Kevin Osborn, and Oliver Cook
+* [Live Front End](https://ramteen85.github.io/jnrhub-client/#/)
+* [Live Back End](https://whispering-chamber-55079.herokuapp.com/)
