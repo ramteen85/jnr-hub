@@ -29,32 +29,36 @@ Skill.create!([{ name: 'WordPress' }])
 # Generate Jobs
 
 
-u1=User.create!(email: 'admin@gmail.com',full_name: 'Kevin Smith',password: 'chicken',
-                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: true, suburb:'waterloo',
+u1 =User.create!(email: 'admin@gmail.com', full_name: 'Kevin Smith', password: 'chicken',
+                phone_no:'9999999', website:'www.tinder.com', about:'About Me', admin: true, suburb:'North Sydney',
                 state:'nsw', country:'aus', user_type:"jobseeker")
 
-u2=User.create!(email: 'freddie@gmail.com',full_name: 'Freddie Jackson',password: 'chicken',
-                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: false, suburb:'waterloo',
-                state:'nsw', country:'aus',user_type:"jobseeker")
+u2 =User.create!(email: 'freddie@gmail.com',full_name: 'Freddie Jackson',password: 'chicken',
+                phone_no:'9999999', website:'www.facebook.com', about:'About Me', admin: false, suburb:'CBD',
+                state:'nsw', country:'aus', user_type:"jobseeker")
 
-
-u3=User.create!(email: 'oliver@gmail.com',full_name: 'Oliver Cook',password: 'chicken',
-                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: true, suburb:'waterloo',
+u3 =User.create!(email: 'oliver@gmail.com',full_name: 'Oliver Cook',password: 'chicken',
+                phone_no:'9999999', website:'www.crud.com', about:'About Me', admin: true, suburb:'Hornsy',
                 state:'nsw', country:'aus', user_type:"employer")
 
-u4=User.create!(email: 'ram@gmail.com',full_name: 'Ram Singh',password: 'chicken',
-                phone_no:'9999999', website:'www.crud.com',about:'spam', admin: false, suburb:'waterloo',
-                state:'nsw', country:'aus', user_type:"employer")
+u4 =User.create!(email: 'ram@gmail.com',full_name: 'Ram Singh',password: 'chicken',
+                phone_no:'9999999', website:'www.google.com', about:'About Me', admin: false, suburb:'Waterloo',
+                state:'NSW', country:'Australia', user_type:"employer")
 
 j1 = Job.create!(company_name: '1-Stop Connections' , location: 'Sydney', description: 'Working closely with the UI/UX designer and product manager, the Front End Developer role at 1-Stop is an opportunity to be on the front-line of some of the biggest global tech projects in the industry.', salary: 80000, role: "Junior Front End Developer",  applicants: 0, user_id: u3.id )
+
 j2 = Job.create!(company_name: 'Flo2Cash' , location: 'Sydney', description: 'If you are an engineer who is really willing to improve ,wants to make a difference in customer experience and succeed, we would love to talk to you. In our team, you will have the opportunity to', salary: 60000,  role: "Graduate Back End Developer",  applicants: 0, user_id: u3.id)
+
 j3 = Job.create!(company_name: 'UTS' , location: 'Sydney', description: 'This position will lead on the design and implementation of engaging, responsive web applications and websites for the Connected Intelligence Centre, whose mission is to help UTS students and staff gain timely insights from educational data. Your communication skills will also be put to great use, as you engage people from across the university and beyond with these exciting new applications.', salary: 100000,  role: "Creative Developer",  applicants: 0, user_id: u4.id)
+
 j4 = Job.create!(company_name: 'Torch Professional Services	' , location: 'Sydney', description: 'This is a fantastic opportunity for a smart, ambitious .NET Developer to work within a fast paced dynamic culture that encourages creativity and innovation.', salary: 30500,  role: "Senior Front End Developer", applicants: 0, user_id: u4.id)
 
+# Currently un-used, tests have not been implemented as of yet
 
-t1=Test.create!(question: 'What is the correct JavaScript syntax to change the content of the HTML element below?', code: '<p id="demo">This is a demonstration.</p>')
-t2=Test.create!(question: 'How do you create a function in JavaScript?', code: '')
-t3=Test.create!(question: 'Write a for loop in JavaScript', code: '')
-t4=Test.create!(question: 'How would you remove the "blue" element from this array', code: 'let colors = ["red", "blue", "green", "yellow"]')
+t1 = Test.create!(question: 'What is the correct JavaScript syntax to change the content of the HTML element below?', code: '<p id="demo">This is a demonstration.</p>')
 
-puts "Created #{User.all.length} users."
+t2 = Test.create!(question: 'How do you create a function in JavaScript?', code: '')
+
+t3 = Test.create!(question: 'Write a for loop in JavaScript', code: '')
+
+t4 = Test.create!(question: 'How would you remove the "blue" element from this array', code: 'let colors = ["red", "blue", "green", "yellow"]')
