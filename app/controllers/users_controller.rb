@@ -13,9 +13,6 @@ class UsersController < ApplicationController
   def profile
     token = params['token']
 
-    puts "Token:"
-    puts
-
     begin
       decoded = decode_token(token)
       user = User.find_by(email: decoded[0]['email'])
@@ -24,7 +21,7 @@ class UsersController < ApplicationController
       render json: {
         "error": "Invalid Token"
       }
-    end 
+    end
   end
 
   def create
