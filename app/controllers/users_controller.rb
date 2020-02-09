@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       render json: {
         "error": "Invalid Token"
       }
-    end 
+    end
   end
 
   def create
