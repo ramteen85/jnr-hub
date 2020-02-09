@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_admin, only: [ :destroy ]
   before_action :allow_cors
   skip_before_action :verify_authenticity_token
 
@@ -69,11 +68,13 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @job.destroy
-    respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
-      format.json { head :no_content }
+    @job = Job.find(params[:id])
+    if @job.present?
+      @job.destroy
     end
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
   end
 
   private
