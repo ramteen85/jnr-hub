@@ -9,6 +9,23 @@ class JobsController < ApplicationController
     render json: @jobs
   end
 
+  def myjobs
+    token = params['token']
+
+    begin
+      decoded = decode_token(token)
+      user = User.find_by(email: decoded[0]['email'])
+
+      my_jobs = Job.where(user_id: user.id)
+
+      render json: my_jobs
+    rescue StandardError => e
+      render json: {
+        "error": "Invalid Token"
+      }
+    end
+  end
+
   def show
     @jobid = params[:id]
     @jobjson = Job.find(@jobid)

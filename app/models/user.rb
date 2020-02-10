@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   # Name can't be blank
   validates :full_name, presence: true
+  # User has many applications
+  has_many :applications 
   # User has many jobs
   has_many :jobs, through: :applications
 end
