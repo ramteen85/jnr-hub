@@ -8,5 +8,5 @@ class User < ApplicationRecord
   # Name can't be blank
   validates :full_name, presence: true
   # User has many jobs
-  has_many :jobs
+  has_many :jobs, through: :applications
 end
