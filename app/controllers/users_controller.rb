@@ -22,14 +22,22 @@ class UsersController < ApplicationController
     end
 
     # Users who applied for the job
-    job = Job.where(id: job_id).includes(:applications).first
+    job = Job.where(id: job_id)
 
-    users = User.all
+    # render json: flight, include: {
+    #   reservations: {},
+    #   airplane: { only: [:name, :rows, :cols] }
+    # }
 
-    render json: {
-      users: users,
-      job: job
-    }
+    render json: job, include: [ :applications ]
+    # render json: Flight.all, include: [ :airplane, reservations: { include: :user } ]
+
+    # users = User.all
+
+    # render json: {
+    #   users: users,
+    #   job: job
+    # }
   end
 
 
