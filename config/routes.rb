@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
   delete '/jobs' => 'jobs#destroy'
   post '/myjobs' => 'jobs#myjobs'
+  post '/applications' => 'applications#create'
   resources :jobs
   resources :users, except: [:update]
   resources :tokens, only: [:create]
