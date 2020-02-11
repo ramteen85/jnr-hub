@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :tests
   root 'users#home'
   post '/users/register' => 'users#register'
+  post '/job-applicants' => 'users#jobapplicants'
   post '/users/getuser' => 'users#getUser'
   get '/users/profile' => 'users#profile'
   post '/users/profile' => 'users#profile'

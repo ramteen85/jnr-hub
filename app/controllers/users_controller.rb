@@ -6,6 +6,33 @@ class UsersController < ApplicationController
   def home
   end
 
+  def jobapplicants
+    token = params['token']
+    job_id = params['job_id']
+
+    # Check Token
+    begin
+      decoded = decode_token(token)
+      check_user = User.find_by(email: decoded[0]['email'])
+
+    rescue StandardError => e
+      render json: {
+        "error": "Invalid Token"
+      }
+    end
+
+    # Users who applied for the job
+    job = Job.where(id: job_id).includes(:applications).first
+
+    users = User.all
+
+    render json: {
+      users: users,
+      job: job
+    }
+  end
+
+
   def new
     @user = User.new
   end
