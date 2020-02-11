@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete '/jobs' => 'jobs#destroy'
   post '/myjobs' => 'jobs#myjobs'
   post '/applications' => 'applications#create'
+  get '/deleteapplications' => 'applications#delete'
   resources :jobs
   resources :users, except: [:update]
   resources :tokens, only: [:create]

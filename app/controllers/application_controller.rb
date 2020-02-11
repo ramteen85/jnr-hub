@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :allow_cors
+  # skip_before_action :verify_authenticity_token
 
   # skip_before_action :verify_authenticity_token
 
