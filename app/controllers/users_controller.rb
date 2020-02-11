@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   end
 
   def jobapplicants
+
+    # grab params
     token = params['token']
     job_id = params['job_id']
 
@@ -22,22 +24,38 @@ class UsersController < ApplicationController
     end
 
     # Users who applied for the job
-    job = Job.where(id: job_id)
+    job = Job.where(id: job_id).first
 
-    # render json: flight, include: {
-    #   reservations: {},
-    #   airplane: { only: [:name, :rows, :cols] }
-    # }
+    # initialize final array and loop
+    applicants = []
+    i = 0
 
-    render json: job, include: [ :applications ]
-    # render json: Flight.all, include: [ :airplane, reservations: { include: :user } ]
+    # find all applications matching user id
+    applications = Application.where(id: job.id)
 
-    # users = User.all
+    # For each application, grab user info and stash in array
+    loop do
+      if i == job.applications.length
+        break
+      end
 
-    # render json: {
-    #   users: users,
-    #   job: job
-    # }
+      # find extract and remap data
+      tmp = job.applications[i].user_id
+      tmp2 = User.find(tmp)
+      tmpDto = {
+        name: tmp2.full_name,
+        phone_no: tmp2.phone_no,
+        email: tmp2.email
+      }
+
+      # push each applicant user info into array
+      applicants.push(tmpDto)
+
+      i += 1
+    end
+
+    # return the user array
+    render json: applicants
   end
 
 
