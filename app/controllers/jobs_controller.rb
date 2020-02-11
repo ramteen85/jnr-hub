@@ -16,7 +16,8 @@ class JobsController < ApplicationController
       decoded = decode_token(token)
       user = User.find_by(email: decoded[0]['email'])
 
-      my_jobs = Job.where(user_id: user.id)
+      my_jobs = # Job.where(user_id: user.id)
+      my_jobs = user.jobs
 
       render json: my_jobs
     rescue StandardError => e

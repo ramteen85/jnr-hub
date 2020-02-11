@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       puts "decoded"
       puts decoded[0]['email']
       user = User.find_by(email: decoded[0]['email'])
-      render json: user, :include => [:jobs]
+      render json: user, :include => [:jobs, :jobs_applied_for]
     rescue StandardError => e
       render json: {
         "error": "Invalid Token"
