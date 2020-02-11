@@ -15,8 +15,6 @@ class UsersController < ApplicationController
 
     begin
       decoded = decode_token(token)
-      puts "decoded"
-      puts decoded[0]['email']
       user = User.find_by(email: decoded[0]['email'])
       render json: user, :include => [:jobs]
     rescue StandardError => e
