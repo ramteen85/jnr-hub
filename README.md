@@ -5,4 +5,3 @@
 * [Live Front End](https://ramteen85.github.io/jnrhub-client/#/)
 * [Live Back End](https://whispering-chamber-55079.herokuapp.com/)
 * [Github Front End](https://github.com/ramteen85/jnrhub-client)
-* [Github Back End](https://github.com/ramteen85/jnr-hub)
