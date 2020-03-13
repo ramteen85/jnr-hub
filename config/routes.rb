@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   # post 'user_token' => 'user_token#create'
-  post '/tokens' => 'tokens#create'
   resources :tests
   root 'users#home'
   post '/users/register' => 'users#register'
