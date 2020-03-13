@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
   def encode_token(payload={})
     exp = 24.hours.from_now
     payload[:exp] = exp.to_i
-    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'HS256')
+    JWT.encode(payload, Rails.application.credentials.secret_key_base, 'HS256')
   end
   def decode_token(token)
-    JWT.decode(token, Rails.application.secrets.secret_key_base, true, { algorithm: 'HS256' })
+    JWT.decode(token, Rails.application.credentials.secret_key_base, true, { algorithm: 'HS256' })
   end
 end
